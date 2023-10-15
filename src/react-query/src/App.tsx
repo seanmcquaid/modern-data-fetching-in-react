@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react"
+import Post from "./types/Post"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
+  const [posts, setPosts] = useState<Post[]>([])
+  const [error, setError] = useState<unknown>(null)
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setIsLoading(true)
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+        const data = await response.json() as Post[]
+        setPosts(data)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchPosts()
+  }, [])
+
+  if(isLoading){
+    return <div>Loading...</div>
+  }
+
+  if(error){
+    return <div>Error</div>
+  }
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Let's dig into using React Query instead of this useEffect non-sense!</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
