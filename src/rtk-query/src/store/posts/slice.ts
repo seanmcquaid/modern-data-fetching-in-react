@@ -16,7 +16,7 @@ const postsSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addMatcher(postsApi.endpoints.getPosts.matchFulfilled, (state, action) => {
-            state.posts = action.payload ?? [];
+            state.posts = action.payload;
         });
     }
 })
