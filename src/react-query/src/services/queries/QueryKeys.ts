@@ -1,5 +1,5 @@
 const QueryKeys = {
-    GET_POSTS: 'getPosts',
+  GET_POSTS: "getPosts",
 } as const;
 
-export default QueryKeys
+export default QueryKeys;

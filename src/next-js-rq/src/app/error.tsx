@@ -1,20 +1,13 @@
-'use client'
- 
-import { useEffect } from 'react'
- 
-const Error = ({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) => {
+"use client";
 
+import { useEffect } from "react";
+
+const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
- 
+    console.error(error);
+  }, [error]);
+
   return (
     <div>
       <h2>Something went wrong!</h2>
@@ -27,7 +20,7 @@ const Error = ({
         Try again
       </button>
     </div>
-  )
-}
+  );
+};
 
 export default Error;
