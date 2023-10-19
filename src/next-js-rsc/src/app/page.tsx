@@ -1,5 +1,5 @@
 import postsService from "@/services/postsService"
-import DeleteButton from "./DeleteButton";
+import DeleteButton from "@/components/DeleteButton";
 import { deletePost } from "./actions";
 
 const App = async () => {
