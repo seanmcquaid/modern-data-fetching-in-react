@@ -3,17 +3,14 @@
 import useSuspenseGetPostsQuery from "@/services/queries/useSuspenseGetPostsQuery";
 import { useRouter } from "next/navigation";
 
-const App = () => {
+const MorePostsSuspense = () => {
   const { data } = useSuspenseGetPostsQuery();
   const router = useRouter();
 
   return (
     <div>
-      <h1>Time to dig into using Next.js with React Query</h1>
-      <button onClick={() => router.push("/morePosts")}>More Posts</button>
-      <button onClick={() => router.push("/morePostsSuspense")}>
-        More Posts with Suspense
-      </button>
+      <h1>Time to dig into using Next.js with React Query AGAIN AGAIN</h1>
+      <button onClick={() => router.push("/")}>Go back</button>
       <ul>
         {data?.map((post) => (
           <li key={post.id}>
@@ -25,4 +22,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default MorePostsSuspense;

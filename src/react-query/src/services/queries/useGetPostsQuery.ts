@@ -3,12 +3,12 @@ import QueryKeys from "./QueryKeys";
 import postsService from "../postsService";
 
 const useGetPostsQuery = () => {
-    const result = useQuery({
-        queryKey: [QueryKeys.GET_POSTS],
-        queryFn: () => postsService.getPosts(),
-    });
+  const result = useQuery({
+    queryKey: [QueryKeys.GET_POSTS],
+    queryFn: () => postsService.getPosts(),
+  });
 
-    return result;
-}
+  return result;
+};
 
 export default useGetPostsQuery;
