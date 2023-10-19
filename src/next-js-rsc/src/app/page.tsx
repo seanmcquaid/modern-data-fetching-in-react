@@ -1,11 +1,18 @@
-// JSON Placeholder API Docs
-// https://jsonplaceholder.typicode.com/
+import postsService from "@/services/postsService"
 
-function App() {
+const App = async () => {
+  const posts = await postsService.getPosts();
   
   return (
     <div>
       <h1>Time to dig into using React Server Components</h1>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <p>{post.title}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
