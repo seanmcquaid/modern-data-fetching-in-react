@@ -13,7 +13,7 @@ const postsApi = createApi({
       providesTags: result =>
         result
           ? result.map(({ id }) => ({ type: 'Posts', id }))
-          : [{ type: 'Posts', id: 'LIST' }],
+          : [],
     }),
     deletePost: builder.mutation<void, number>({
       query: (id) => ({
