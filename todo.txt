@@ -1,1 +1,1 @@
-1. 
+1. Review all code and make sure it is the same or conveying the different nuances of each approach
