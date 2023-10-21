@@ -1,6 +1,7 @@
 import postsService from "@/services/postsService";
 import DeleteButton from "@/components/DeleteButton";
 import { deletePost } from "./actions";
+import Link from "next/link";
 
 const App = async () => {
   const posts = await postsService.getPosts();
@@ -19,6 +20,7 @@ const App = async () => {
           </li>
         ))}
       </ul>
+      <Link href="/multipleSuspense">Multiple Suspense</Link>
     </div>
   );
 };

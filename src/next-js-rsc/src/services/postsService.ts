@@ -8,6 +8,8 @@ const postsService = {
     fetch(`${baseUrl}/posts`, { next: { tags: [QueryKeys.GET_POSTS] } }).then(
       (res) => res.json() as Promise<Post[]>
     ),
+  getPost: (id: string) =>
+    fetch(`${baseUrl}/posts/${id}`).then((res) => res.json() as Promise<Post>),
   deletePost: (id: string) =>
     fetch(`${baseUrl}/posts/${id}`, { method: "DELETE" }),
 } as const;

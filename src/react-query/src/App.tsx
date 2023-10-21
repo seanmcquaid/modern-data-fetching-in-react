@@ -13,7 +13,7 @@ const DeleteButton = ({ id }: DeleteButtonProps) => {
       {isPending ? "Loading" : "Delete"}
     </button>
   );
-}
+};
 
 function App() {
   const { data } = useGetPostsQuery();

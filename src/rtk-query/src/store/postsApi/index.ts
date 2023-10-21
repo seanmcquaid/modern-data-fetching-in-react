@@ -6,21 +6,19 @@ const postsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://jsonplaceholder.typicode.com/",
   }),
-  tagTypes: ['Posts'],
+  tagTypes: ["Posts"],
   endpoints: (builder) => ({
     getPosts: builder.query<Post[], void>({
       query: () => "posts",
-      providesTags: result =>
-        result
-          ? result.map(({ id }) => ({ type: 'Posts', id }))
-          : [],
+      providesTags: (result) =>
+        result ? result.map(({ id }) => ({ type: "Posts", id })) : [],
     }),
     deletePost: builder.mutation<void, number>({
       query: (id) => ({
         url: `posts/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ['Posts'],
+      invalidatesTags: ["Posts"],
     }),
   }),
 });

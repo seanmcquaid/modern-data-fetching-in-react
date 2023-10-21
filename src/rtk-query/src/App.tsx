@@ -1,8 +1,21 @@
 import { useDeletePostMutation, useGetPostsQuery } from "./store/postsApi";
 
+interface DeleteButtonProps {
+  id: number;
+}
+
+const DeleteButton = ({ id }: DeleteButtonProps) => {
+  const [mutate, { isLoading }] = useDeletePostMutation();
+
+  return (
+    <button onClick={() => mutate(id)}>
+      {isLoading ? "Loading" : "Delete"}
+    </button>
+  );
+};
+
 function App() {
   const { data } = useGetPostsQuery();
-  const [mutate] = useDeletePostMutation();
 
   return (
     <div>
@@ -10,7 +23,7 @@ function App() {
       <ul>
         {data?.map((post) => (
           <li key={post.id}>
-            {post.title} <button onClick={() => mutate(post.id)}>Delete</button>
+            {post.title} <DeleteButton id={post.id} />
           </li>
         ))}
       </ul>
