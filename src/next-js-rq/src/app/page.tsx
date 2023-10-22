@@ -14,6 +14,9 @@ const App = () => {
       <button onClick={() => router.push("/morePostsSuspense")}>
         More Posts with Suspense
       </button>
+      <button onClick={() => router.push("/multipleSuspense")}>
+        Multiple Suspense
+      </button>
       <ul>
         {data?.map((post) => (
           <li key={post.id}>

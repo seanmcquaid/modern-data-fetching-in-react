@@ -9,6 +9,7 @@ const App = async () => {
   return (
     <div>
       <h1>Time to dig into using React Server Components</h1>
+      <Link href="/multipleSuspense">Multiple Suspense</Link>
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
@@ -20,7 +21,6 @@ const App = async () => {
           </li>
         ))}
       </ul>
-      <Link href="/multipleSuspense">Multiple Suspense</Link>
     </div>
   );
 };
