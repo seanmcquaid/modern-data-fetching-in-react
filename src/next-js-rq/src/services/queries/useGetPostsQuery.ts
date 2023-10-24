@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import QueryKeys from "../QueryKeys";
+import QueryKeys from "./QueryKeys";
 import postsService from "../postsService";
 import sleep from "@/utils/sleep";
 

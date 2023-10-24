@@ -1,5 +1,5 @@
 "use client";
-import QueryKeys from "@/services/QueryKeys";
+import QueryKeys from "@/services/queries/QueryKeys";
 import postsService from "@/services/postsService";
 import sleep from "@/utils/sleep";
 import { useSuspenseQuery } from "@tanstack/react-query";
